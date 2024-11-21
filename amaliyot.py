@@ -30,7 +30,7 @@ class DataBase:
                 teacher_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                 name VARCHAR(50) NOT NULL,
                 experience_years INTEGER CHECK( experience_years >= 0)
-            )
+            );
         '''
         self.manager(sql, commit=True)
 
@@ -40,7 +40,7 @@ class DataBase:
                 student_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                 student_name VARCHAR(50) NOT NULL,
                 age INTEGER CHECK(age > 0),
-            )
+            );
         '''
         self.manager(sql, commit=True)
 
@@ -50,7 +50,7 @@ class DataBase:
                 class_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                 teacher_id INTEGER REFERENCES teachers(teacher_id) NOT NULL,
                 student_id INTEGER REFERENCES students(student_id) NOT NULL,
-            )
+            );
         '''
         self.manager(sql, commit=True)
 
@@ -69,7 +69,7 @@ class DataBase:
             ('Olim Saidov', 17),
             ('Nilufar Begimova', 15),
             ('Jasur Qozoqov', 17),
-            ('Madina Karimova', 16)
+            ('Madina Karimova', 16);
         '''
         self.manager(sql, commit=True)
             
@@ -83,12 +83,28 @@ class DataBase:
             (2, 5),
             (2, 2),
             (2, 4),
-            (2, 3)
+            (2, 3);
         '''
         self.manager(sql, commit=True)
 
+    def select_teachers(self):
+        sql = '''
+            SELECT * FROM teachers;
+        '''
+        self.manager(sql, commit=True)
 
+    def select_students(self):
+        sql = '''
+            SELECT * FROM students;
+        '''
+        self.manager(sql, commit=True)
 
+    def select_classes(self):
+        sql = '''
+            SELECT * FROM classes;
+        '''
+        self.manager(sql, commit=True)
+        
 
 
 
