@@ -54,6 +54,38 @@ class DataBase:
         '''
         self.manager(sql, commit=True)
 
+    def insert_teachers(self):
+        sql = '''
+            INSERT TABLE teachers(name, experience_years) VALUES
+            ('Dilshod Nazarov', 10),
+            ('Sayyora Akhmedova', 7);
+        '''
+        self.manager(sql, commit=True)
+    
+    def insert_students(self):
+        sql = '''
+            INSERT TABLE students(student_name, age)
+            ('Ahmad Aliyev', 16),
+            ('Olim Saidov', 17),
+            ('Nilufar Begimova', 15),
+            ('Jasur Qozoqov', 17),
+            ('Madina Karimova', 16)
+        '''
+        self.manager(sql, commit=True)
+            
+    def insert_classes(self):
+        sql = '''
+            INSERT TABLE classes( teacher_id, student_id)
+            (1, 1),
+            (1, 4),
+            (1, 2),
+            (1, 5),
+            (2, 5),
+            (2, 2),
+            (2, 4),
+            (2, 3)
+        '''
+        self.manager(sql, commit=True)
 
 
 
