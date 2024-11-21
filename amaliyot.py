@@ -40,7 +40,6 @@ class DataBase:
                 student_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                 student_name VARCHAR(50) NOT NULL,
                 age INTEGER CHECK(age > 0),
-                email VARCHAR(255) UNIQUE NOT NULL
             )
         '''
         self.manager(sql, commit=True)
@@ -65,8 +64,8 @@ class DataBase:
     
     def insert_students(self):
         sql = '''
-            INSERT TABLE students(student_name, age, email)
-
+            INSERT TABLE students(student_name, age)
+            ()
         '''
         self.manager(sql, commit=True)
 
